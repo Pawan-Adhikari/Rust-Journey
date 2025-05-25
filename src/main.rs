@@ -1,17 +1,26 @@
-fn loop_and_panic(vec : Vec<i32>)
+enum direction
 {
-    for num in vec
+    North,
+    South,
+    East,
+    West,
+    Unknown(String),
+}
+
+fn move_player(current_dir : direction)
+{
+    match current_dir
     {
-        if num < 0
-        {
-            panic!("Negative number found; crashing the program");
-        }
-        println!("{}",num);
+        direction::North => println!("Moved North!"),
+        direction::South => println!("Moved South!"),
+        direction::East => println!("Moved East!"),
+        direction::West => println!("Moved West!"),
+        direction::Unknown(String) => println!("Not a valid direction"),
     }
 }
 
 fn main()
 {
-    let numbers = vec![1,2,3,4,-5];
-    loop_and_panic(vec![1,2,3,4,-5]);
+
+    move_player("jj");
 }
